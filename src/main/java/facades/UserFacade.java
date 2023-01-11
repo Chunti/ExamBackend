@@ -72,12 +72,6 @@ public class UserFacade {
         return user;
     }
 
-
-    // Det er rart at returnere et User objekt i stedet for UserDTO, fordi vi i fremtiden kan det være at vi laver
-    // addRole metode. så kalder jeg createUser metoden så kan jeg lige efter bruge addRole metoden som også
-    // retunere et User entitiy objekt.
-    // når man så er færdig med at samlet User objekt, så kan jeg lave det om til UserDTO.
-    // LIGE NU bruger vi createUser metoden som returnerer et entity objekt, men det bliver lavet om til userDTO i Userresource i rest
     public User createUser(String username, String password) throws API_Exception {
 
 
@@ -104,23 +98,5 @@ public class UserFacade {
 
         return user;
     }
-
-
-    // Just a way to test
-//    public static void main(String[] args) throws API_Exception, AuthenticationException {
-//        System.out.println(BCrypt.checkpw("test123", "$2a$10$QeEwAmgZAh2ALPWobjqsVeMlGCsPIRUFgW8BvLoDAwjqYNFZarh2C"));
-//
-//
-//        User user = new User("test_user2", "1234");
-//        user.verifyPassword("123");
-//
-//        EntityManagerFactory emf = utils.EMF_Creator.createEntityManagerFactory();
-//        UserFacade userFacade = UserFacade.getUserFacade(emf);
-//        System.out.println(  userFacade.getVeryfiedUser("NyUser", "test123"));
-//
-//        List<String> roles = new ArrayList<>();
-//        roles.add("admin");
-//        roles.add("user");
-//        System.out.println(userFacade.createUser("test_user2", "1234", roles));
-    }
+}
 
